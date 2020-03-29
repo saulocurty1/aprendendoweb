@@ -16,7 +16,7 @@
             */
             body {
                 background: #e5e5e5;
-                color: #25282b;
+                color: #25282B;
 
                 text-align: center;
             }
@@ -31,6 +31,14 @@
             .fat {
                 color: white;
                 background: #ff5E84;
+            }
+
+            #footer a {
+                color: #25282B;
+                text-decoration:none;
+            }
+            .hide {
+                display: none;
             }
         </style>
     </head> 
@@ -48,7 +56,7 @@
             e tudo que for necessário para tornar
             esse momento mais interessante.
         </p>
-        <p> 
+        <p id="footer2"> 
             Comece clicando em ver ideias para ver as ideias
             cadastradas e contribua adicionando ideias.
         </p>
@@ -56,7 +64,29 @@
 
         <button class="fat">Ver ideias</button>
 
-        <p id="footer">Com ❤ <a href="http://gmail.com">Saulo</a></p>
+        <p id="footer">Com ❤ <a href="https://github.com/saulocurty1" target="blank">Saulo</a></p>
+
+        <script>
+            document
+                .querySelector("button.fat")
+                .addEventListener("click", function(){
+                    document
+                        .querySelector("#footer")
+                        .classList
+                        .toggle("hide")
+                })
+                
+            document
+                .querySelector("button.fat")
+                .addEventListener("click", function(){
+                    document
+                        .querySelector("#footer2")
+                        .classList
+                        .toggle("hide")
+                })
+
+
+        </script>
 
     </body>
 
