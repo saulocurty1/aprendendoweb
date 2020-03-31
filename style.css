@@ -1,0 +1,144 @@
+/*
+
+Box
+largura
+espacamento
+posicionametno
+borda
+>>>>>>>>>>>>>
+preenchimento
+
+*/
+body {
+    background: #e5e5e5;
+    color: #25282B;
+
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.hide {
+    display: none;
+}
+
+#container {
+    width: 90%;
+    max-width: 980px;
+
+    margin: 40px auto;
+
+    display: flex;
+
+}
+
+p, .description {
+
+    font-size: 16px;
+    letter-spacing: 0.1px;
+
+}
+
+#intro {
+    width: 300px;
+    margin-right: 20px;
+}
+
+main {
+    margin: 32px 0;
+}
+
+button {   /* modelagem dos botoes "ver ideias" e "adicionar ideias"*/
+    border: none;
+    background: none;
+    color: #ff5E84;
+    cursor: pointer;  /*faz o cursor mudar quando passa por cima*/
+    outline: none;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+
+}
+
+button:hover { /*Acao realizada quando o mouse passa por cima*/
+    text-decoration: underline;
+}
+
+a { /*Acontece com todos os links*/
+    color: #ff5E84;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover { /*Acao quando o mouse passa por cima*/
+    text-decoration: underline;
+}
+
+
+button.fat {
+    color: white;
+    background: #ff5E84;
+    width: 150px;
+    height: 40px;
+    border-radius: 6px;
+    box-shadow: 0 8px 16px #ff5E8432;
+}
+
+button.fat:hover {
+    text-decoration: none;
+}
+
+#buttons {
+    display: flex;
+    margin-bottom: 32px;
+    justify-content: space-evenly;
+
+}
+
+footer {
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+
+    color: #777;
+}
+
+footer a {
+
+    opacity: 0.6;
+
+}
+
+.idea {
+    display: flex;
+    margin-bottom: 32px;
+    background-color: #FFF;
+    box-shadow: 0 4px 16px -8p rgba(1, 1, 1, 0.1);
+    border-radius: 8px;
+    padding: 32px;
+}
+
+.idea img{
+    width: 60px;
+    height: 60px;
+    margin-right: 32px;
+}
+
+.idea h3 {
+    margin: 0;
+}
+
+.idea p {
+
+    margin: 8px 0;
+    color: #777;
+
+}
+
+.idea description {
+
+    margin: 16px 0;
+
+}
