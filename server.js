@@ -47,7 +47,14 @@ nunjucks.configure("views", {
 // criei uma rota / 
 // e capturo o pedido do cliente
 server.get("/", function(req, res){
-    
+    const lastIdeas = []
+    for(let idea of ideas){
+       if(lastIdeas.length < 2){
+           
+       }
+    }
+
+
     return res.render("index.html", { ideas })
 })
 
