@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ideias- Casa Criativa</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body id="page-ideas">
+    <div id="container">
+        <header>
+            <a href="/">
+
+                <img src="/logo.png" alt="Imagem da logomarca">
+            </a>
+            <nav>
+                <li><a href="/">Inicio</a></li>
+                <li><a class="button" href="#" onclick="onOff()">Nova Ideias</a></li>
+    
+            </nav>
+        </header>
+            <section id="title">
+                <p>Em exibicao</p>
+                <h1>Ideias</h1>
+            </section>
+        <main>
+            <section id="ideas">
+                
+                <div class="idea">
+                    <img src="https://image.flaticon.com/icons/svg/2729/2729007.svg" alt="Imagem do Curso de Programacao">
+                    <div class="content">
+                        <h3>Curso de Programacao</h3>
+                        <p>Estudo</p>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci perferendis sint omnis
+                            officiis, tempore rem quae facere voluptatibus aperiam sapiente labore suscipit impedit.
+                        </div>
+                        <a href="#">Ir para a ideia</a>
+                    </div>
+                </div>
+                
+                <div class="idea">
+                    <img src="https://image.flaticon.com/icons/svg/2729/2729005.svg" alt="Imagem Exercicio">
+                    <div class="content">
+                        <h3>Exercicio</h3>
+                        <p>Saude</p>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci perferendis sint omnis
+                            officiis, tempore rem quae facere voluptatibus aperiam sapiente labore suscipit impedit.
+                        </div>
+                        <a href="#">Ir para a ideia</a>
+                    </div>
+
+                </div>
+
+
+                <div class="idea">
+                    <img src="https://image.flaticon.com/icons/svg/2729/2729027.svg" alt="Imagem meditacao">
+                    <div class="content">
+                        <h3>Meditacao</h3>
+                        <p>Mentalidade</p>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci perferendis sint omnis
+                            officiis, tempore rem quae facere voluptatibus aperiam sapiente labore suscipit impedit.
+                        </div>
+                        <a href="#">Ir para a ideia</a>
+                    </div>
+                </div>
+
+                <div class="idea">
+                    <img src="https://image.flaticon.com/icons/svg/2729/2729032.svg" alt="Imagem Karaoke">
+                    <div class="content">
+                        <h3>Karaoke</h3>
+                        <p>Diversao em Familia</p>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci perferendis sint omnis
+                            officiis, tempore rem quae facere voluptatibus aperiam sapiente labore suscipit impedit.
+                        </div>
+                        <a href="#">Ir para a ideia</a>
+                    </div>
+
+                </div>
+                
+                
+                
+            </section>
+        </main>
+    
+        <footer>   
+            Com ❤ <a href="https://github.com/saulocurty1" target="_blank">Saulo </a>
+        </footer>
+    </div>
+<!--
+    modal
+-->
+    <div id="modal" class="hide">
+        <div class="content">
+            <h1>Nova ideia</h1>
+
+            <form action="">
+
+                <div class="input-wrapper">
+                    <label for="title">Titulo da ideia</label>
+                    <input type="text" name="title">
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="category">Categoria</label>
+                    <input type="text" name="category"></div>
+
+                <div class="input-wrapper">
+                    <label for="image">Link da Imagem</label>
+                    <input type="url" name="image"></div>
+
+                <div class="input-wrapper">
+                    <label for="description">Digite uma descricao para sua ideia</label>
+                    <textarea name="description" cols="30" rows="10"></textarea></div>
+
+                <div class="input-wrapper">
+                    <label for="link">Link da ideia</label>
+                    <input type="url" name="link"></div>
+
+                <a href="#" onclick="onOff()">Voltar</a>
+                <button>Salvar</button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="/scripts.js"></script>
+
+</body>
+</html>
+
+<!-- 7-->
