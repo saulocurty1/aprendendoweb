@@ -32,6 +32,20 @@ const ideas =[
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci perferendis sint omnis",
         url: "https://github.com/saulocurty1"
     },
+    {
+        img: "https://image.flaticon.com/icons/svg/2729/2729038.svg",
+        title: "Pintura",
+        category: "Criatividade",
+        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci perferendis sint omnis",
+        url: "https://github.com/saulocurty1"
+    },
+    {
+        img: "https://image.flaticon.com/icons/svg/2729/2729048.svg",
+        title: "Recortes",
+        category: "Criatividade",
+        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci perferendis sint omnis",
+        url: "https://github.com/saulocurty1"
+    },
 ]
 
 //configurar arquivos estaticos
@@ -47,20 +61,25 @@ nunjucks.configure("views", {
 // criei uma rota / 
 // e capturo o pedido do cliente
 server.get("/", function(req, res){
-    const lastIdeas = []
-    for(let idea of ideas){
+
+
+    const reversedIdeas = [...ideas].reverse()
+
+
+    let lastIdeas = []
+    for(let idea of reversedIdeas){
        if(lastIdeas.length < 2){
-           
+           lastIdeas.push(idea)
        }
     }
-
-
-    return res.render("index.html", { ideas })
+    return res.render("index.html", { ideas:lastIdeas })
 })
 
 
 server.get("/ideias", function(req, res){
-    return res.render("ideias.html")
+
+    const reversedIdeas = [...ideas].reverse()
+    return res.render("ideias.html", {ideas:reversedIdeas})
 })
 
 
