@@ -3,53 +3,12 @@
 
 const express = require("express")
 const server = express()
-const ideas =[
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729007.svg",
-        title: "Curso de Programacao",
-        category: "Estudo",
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci perferendis sint omnis",
-        url: "https://github.com/saulocurty1"
-    },
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729005.svg",
-        title: "Exercicio",
-        category: "Saude",
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci perferendis sint omnis",
-        url: "https://github.com/saulocurty1"
-    },
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729027.svg",
-        title: "Meditacao",
-        category: "Mentalidade",
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci perferendis sint omnis",
-        url: "https://github.com/saulocurty1"
-    },
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729032.svg",
-        title: "Karaoke",
-        category: "Diversao em Familia",
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci perferendis sint omnis",
-        url: "https://github.com/saulocurty1"
-    },
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729038.svg",
-        title: "Pintura",
-        category: "Criatividade",
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci perferendis sint omnis",
-        url: "https://github.com/saulocurty1"
-    },
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729048.svg",
-        title: "Recortes",
-        category: "Criatividade",
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci perferendis sint omnis",
-        url: "https://github.com/saulocurty1"
-    },
-]
+const db =  require("./db")
 
 //configurar arquivos estaticos
 server.use(express.static("public"))
+// habilitar req.body
+server.use(express.urlencoded({extended: true}))
 
 // configurar nunjucks
 const nunjucks = require("nunjucks")
@@ -62,24 +21,71 @@ nunjucks.configure("views", {
 // e capturo o pedido do cliente
 server.get("/", function(req, res){
 
+    db.all(`SELECT * FROM ideas`, function(err, rows){
+        if (err) {
+            console.log(err)
+            return res.send("Erro no banco de dados.")
+        }
 
-    const reversedIdeas = [...ideas].reverse()
+        const reversedIdeas = [...rows].reverse()
+        let lastIdeas = []  
+        for(let idea of reversedIdeas){
+            if(lastIdeas.length < 2){
+                lastIdeas.push(idea)
+            }
+        }
+        return res.render("index.html", { ideas:lastIdeas })
+    })
 
-
-    let lastIdeas = []
-    for(let idea of reversedIdeas){
-       if(lastIdeas.length < 2){
-           lastIdeas.push(idea)
-       }
-    }
-    return res.render("index.html", { ideas:lastIdeas })
 })
 
 
 server.get("/ideias", function(req, res){
 
-    const reversedIdeas = [...ideas].reverse()
-    return res.render("ideias.html", {ideas:reversedIdeas})
+
+    db.all(`SELECT * FROM ideas`, function(err, rows){
+
+        if (err) {
+            console.log(err)
+            return res.send("Erro no banco de dados.")
+        }
+
+        const reversedIdeas = [...rows].reverse()
+        return res.render("ideias.html", {ideas:reversedIdeas})
+
+    })
+
+})
+
+server.post("/", function(req, res){
+    
+    //inserir dados
+
+    
+    const query =`
+    INSERT INTO ideas(
+        image,
+        title,
+        category,
+        description,
+        link
+    ) VALUES(?,?,?,?,?);
+    `
+    const values = [
+        req.body.image,
+        req.body.title,
+        req.body.category,
+        req.body.description,
+        req.body.link,
+    ]
+
+    db.run(query, values, function(err){
+        if (err) {
+            console.log(err)
+            return res.send("Erro no banco de dados.")
+        }
+        return res.redirect("/ideias")
+    })
 })
 
 
